@@ -16,7 +16,31 @@ const App = () => {
     { title: 'Travel', tasks: 12, categoryImage: require('./photos/travel-image.png') },
     { title: 'Yoga', tasks: 12, categoryImage: require('./photos/yoga-image.webp') },
   ];
-  
+
+  const ongoingTasksData = [
+    { id: '1', title: 'Mobile App Development' },
+    { id: '2', title: 'Web Development' },
+    { id: '3', title: 'Artificial Intelligence ' },
+    { id: '4', title: 'Cloud Computing' },
+    { id: '5', title: 'Data Science & Analytics' },
+    { id: '6', title: 'Virtual Reality' },
+    { id: '7', title: 'Game Development' },
+    { id: '8', title: 'Machine Learning Engineering' },
+    { id: '9', title: 'Software Engineering' },
+    { id: '10', title: 'Robotics' },
+    { id: '11', title: 'Big Data Engineering' },
+    { id: '12', title: 'Computer Vision' },
+    { id: '13', title: 'Backend Development' },
+    { id: '14', title: 'Embedded Systems' },
+    { id: '15', title: 'Natural Language Processing' },
+  ];
+
+  const renderItem = ({ item }) => (
+    <View style={styles.task}>
+      <Text style={styles.taskTitle}>{item.title}</Text>
+    </View>
+  );
+
   return (
     <View style={styles.container}>
       <View style={styles.userInfoContainer}>
@@ -56,6 +80,14 @@ const App = () => {
           ))}
         </ScrollView>
       </View>
+
+      <Text style={styles.sectionTitle}>Ongoing Tasks</Text>
+      <FlatList
+        data={ongoingTasksData}
+        renderItem={renderItem}
+        keyExtractor={(item) => item.id}
+        showsVerticalScrollIndicator={false}
+      />
 
       <StatusBar style="auto" />
     </View>
@@ -188,6 +220,22 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
     height: 140,
     width: 140,
+  },
+
+  task: {
+    backgroundColor: '#f0f0f0',
+    display: 'flex',
+    justifyContent: 'center',
+    height: 130,
+
+    padding: 16,
+    borderRadius: 15,
+    marginBottom: 16,
+  },
+
+  taskTitle: {
+    fontWeight: 'bold',
+    fontSize: 15,
   },
 
 
