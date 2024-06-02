@@ -3,6 +3,20 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 import { StyleSheet, Text, View, Image, TextInput, ScrollView, FlatList, } from 'react-native';
 
 const App = () => {
+  const categoriesData = [
+    { title: 'Exercise', tasks: 12, categoryImage: require('./photos/exercise-icon.png') },
+    { title: 'Study', tasks: 12, categoryImage: require('./photos/study-image.webp') },
+    { title: 'Gaming', tasks: 12, categoryImage: require('./photos/gaming-image.png') },
+    { title: 'Code', tasks: 12, categoryImage: require('./photos/code-image.png') },
+    { title: 'Sports', tasks: 12, categoryImage: require('./photos/sports-image.png') },
+    { title: 'Budgeting', tasks: 12, categoryImage: require('./photos/budget-image.png') },
+    { title: 'Read', tasks: 12, categoryImage: require('./photos/read-image.png') },
+    { title: 'Music', tasks: 12, categoryImage: require('./photos/music-icon.png') },
+    { title: 'Adventure', tasks: 12, categoryImage: require('./photos/adventure-image.png') },
+    { title: 'Travel', tasks: 12, categoryImage: require('./photos/travel-image.png') },
+    { title: 'Yoga', tasks: 12, categoryImage: require('./photos/yoga-image.webp') },
+  ];
+  
   return (
     <View style={styles.container}>
       <View style={styles.userInfoContainer}>
@@ -26,6 +40,21 @@ const App = () => {
         <View style={styles.filterContainer}>
         <Icon name="sliders" style={styles.filterIcon} />
         </View>
+      </View>
+
+      <Text style={styles.sectionTitle}>Categories</Text>
+      <View style={styles.categoriesSection}>
+        <ScrollView horizontal={true} style={styles.categoriesContainer}>
+          {categoriesData.map((category, index) => (
+            <View key={index} style={styles.category}>
+              <Text style={styles.title}>{category.title}</Text>
+              <Text style={styles.tasks}>{category.tasks} Tasks</Text>
+              <View  style={styles.categoryImage}>
+                  <Image style={styles.categoryIcons} source={category.categoryImage}/>
+              </View>
+            </View>
+          ))}
+        </ScrollView>
       </View>
 
       <StatusBar style="auto" />
@@ -108,6 +137,57 @@ const styles = StyleSheet.create({
   filterIcon:{
     color: 'white',
     fontSize: 30,
+  },
+
+  sectionTitle:{
+    fontSize: 20,
+    fontWeight: 'bold',
+    fontFamily: 'serif',
+    marginBottom: 10,
+  },
+
+
+  categoriesSection:{
+    marginBottom: 20,
+  },
+
+  categoriesContainer: {
+    display: 'flex',
+    flexDirection: 'row',
+    
+  },
+
+  category:{
+    marginRight: 20,
+    height: 190,
+    width: 180,
+    borderRadius: 10,
+    backgroundColor: 'white',
+    paddingTop: 10,
+  },
+
+  title:{
+    fontWeight: 'bold',
+    marginLeft: 20,
+    fontSize: 15,
+  },
+
+  tasks:{
+    marginLeft: 20,
+    fontSize: 10,
+  },
+
+  categoryImage:{
+    height: 120,
+    width: 130,
+    marginLeft: 20,
+
+  },
+
+  categoryIcons:{
+    backgroundColor: 'white',
+    height: 140,
+    width: 140,
   },
 
 
