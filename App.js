@@ -99,7 +99,7 @@ const styles = StyleSheet.create({
   container: {
     backgroundColor: '#f0e2d3',
     flex: 1,
-    paddingTop: 40,
+    paddingTop: 30,
     paddingLeft: 15,
     paddingRight: 15,
   },
@@ -226,7 +226,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#f0f0f0',
     display: 'flex',
     justifyContent: 'center',
-    height: 130,
+    height: 100,
 
     padding: 16,
     borderRadius: 15,
